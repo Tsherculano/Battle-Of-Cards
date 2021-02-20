@@ -124,33 +124,41 @@ section {
 
 #display-card-p1 {
     border: 1px solid red;
+    display: flex;
+    justify-content:center;
+    align-items: center;
     background: #4d4b4b;
-    width: 450px;
-    height: 240px;
+    width: 580px;
+    height: 200px;
     padding: 70px;
     margin: 0px auto;
     box-shadow: inset 0px 0px 20px -6px rgba(97, 89, 97, 1);
+    border-radius: 45px;
 
 }
 
 #display-card-p2 {
     border: 1px solid red;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     background: #4d4b4b;
-    width: 450px;
-    height: 240px;
+    width: 580px;
+    height: 200px;
     padding: 70px;
     margin: 0px auto;
-    margin-top: 25px;
+    margin-top: 100px;
     box-shadow: inset 0px 0px 20px -6px rgba(97, 89, 97, 1);
+    border-radius: 45px;
 }
 
 
 .card {
     border: 1px solid black;
-    width: 75px;
+    width: 100px;
     height: 100px;
     display: inline-block;
-    justify-content:center;
+
 }
 
 .card-img {
