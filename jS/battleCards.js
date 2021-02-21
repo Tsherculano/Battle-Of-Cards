@@ -3,6 +3,7 @@ class BattleCards {
         this.cards = cards;
         this.player1 = [];
         this.player2 = [];
+        this.cardsOfRound = [];
         this.deckDead = [];
         this.scoreP1 = 0;
         this.scoreP2 = 0;
@@ -41,12 +42,6 @@ class BattleCards {
         }
     }
         
-
-   
-
-
-
-    
 
     endGame() {
         this.scoreP1 || this.scoreP2 === 15;

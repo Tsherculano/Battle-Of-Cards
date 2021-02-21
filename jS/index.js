@@ -1,5 +1,4 @@
-const cards = [
-    {
+const cards = [{
         name: 'monster01',
         img: 'monster01.png',
         health: 25
@@ -39,7 +38,7 @@ const cards = [
         img: 'monster08.png',
         health: 30
     },
-    
+
 ];
 
 const battleCards = new BattleCards(cards);
@@ -48,19 +47,18 @@ battleCards.shuffleCards();
 window.addEventListener('load', event => {
     let player1 = '';
     let player2 = '';
-
     battleCards.cards.forEach((pic, index) => {
 
-        if(index < battleCards.cards.length / 2) {
+        if (index < battleCards.cards.length / 2) {
             player1 += `<div class="card" data-card-name="${pic.name}">`;
-            player1 += `<div class="card-img" style="background: url(./images/${pic.img}) no-repeat; background-size: cover; border-radius: 25px; ">
+            player1 += `<div class="imgOfCard" style="background: url(./images/${pic.img}) no-repeat; background-size: cover;">
             <span>${pic.name}</span>
             <span>${pic.health}</span>
             </div>`;
             player1 += `</div>`;
         } else {
             player2 += `<div class="card" data-card-name="${pic.name}">`;
-            player2 += `<div class="card-img" style="background: url(./images/${pic.img}) no-repeat; background-size: cover; border-radius: 25px; ">
+            player2 += `<div class="imgOfCard" style="background: url(./images/${pic.img}) no-repeat; background-size: cover;">
             <span>${pic.name}</span>
             <span>${pic.health}</span>
             </div>`;
@@ -71,11 +69,12 @@ window.addEventListener('load', event => {
     document.querySelector('#display-card-p1').innerHTML = player1;
     document.querySelector('#display-card-p2').innerHTML = player2;
 
-
-  });
-
-
-
-
+    document.querySelectorAll('.card').forEach(card =>{
+        
+        card.addEventListener('click', () =>{
+            console.log(`Cliquei`);
+        })
+    })
+});
 
 
