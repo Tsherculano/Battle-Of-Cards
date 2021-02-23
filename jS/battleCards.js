@@ -4,7 +4,6 @@ class BattleCards {
         this.player1 = [];
         this.player2 = [];
         this.cardsOfRound = [];
-        this.deckDead = [];
         this.scoreP1 = 0;
         this.scoreP2 = 0;
 
@@ -12,7 +11,7 @@ class BattleCards {
 
     shuffleCards() {
         const min = 0;
-        const max = this.cards.length - 1;
+        const max = this.cards.length;
         let cardsRandom;
 
         this.cards.forEach(() => {
@@ -23,18 +22,11 @@ class BattleCards {
             this.cards.splice(cardsRandom, 1);
             this.cards.push(selectedCard);
         });
-
-
     };
 
-    dealCards(player1, player2) {
-
-    }
-
-    checkHealth(cardHealth1, cardHealth2) {
-        // Creio que aqui já direciono as cartas para o this.deckDead
-
-        if (cardHealth1.health > cardHealth2.health) {
+    checkHealth(monsterHealth1, monsterHealth2) {
+        
+        if (monsterHealth1 > monsterHealth2) {
             this.scoreP1 += 1;
 
         } else {
@@ -42,12 +34,7 @@ class BattleCards {
         }
     }
         
-
     endGame() {
         this.scoreP1 || this.scoreP2 === 15;
     }
-
-
-
-
 }

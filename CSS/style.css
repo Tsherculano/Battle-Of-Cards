@@ -38,7 +38,9 @@
 }
 
 
-.card {
+.card,
+.card2
+{
     width: 100px;
     height: 125px;
     display: inline-block;
@@ -76,6 +78,10 @@ h1 {
     margin-bottom: 40px;
     text-align: center;
 }
+
+.card.turned {
+    pointer-events: none;
+  }
 
 
 

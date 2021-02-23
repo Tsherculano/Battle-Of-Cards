@@ -53,14 +53,14 @@ window.addEventListener('load', event => {
             player1 += `<div class="card" data-card-name="${pic.name}">`;
             player1 += `<div class="imgOfCard" style="background: url(./images/${pic.img}) no-repeat; background-size: cover;">
             <span>${pic.name}</span>
-            <span>${pic.health}</span>
+            <span id="health-p1">${pic.health}</span>
             </div>`;
             player1 += `</div>`;
         } else {
-            player2 += `<div class="card" data-card-name="${pic.name}">`;
+            player2 += `<div class="card" data-card-name2="${pic.name}">`;
             player2 += `<div class="imgOfCard" style="background: url(./images/${pic.img}) no-repeat; background-size: cover;">
             <span>${pic.name}</span>
-            <span>${pic.health}</span>
+            <span id="health-p2">${pic.health}</span>
             </div>`;
             player2 += `</div>`;
         }
@@ -71,10 +71,42 @@ window.addEventListener('load', event => {
 
     document.querySelectorAll('.card').forEach(card =>{
         
-        card.addEventListener('click', () =>{
-            console.log(`Cliquei`);
+        card.addEventListener('click', () => {
+            console.log(`A CARTA FOI CLICADA`)
+            
+            if(battleCards.cardsOfRound.length < 2){
+                
+                battleCards.cardsOfRound.push(card);
+                console.log(battleCards)
+
+                if(battleCards.cardsOfRound.length === 2) {
+                    
+                    const monsterHealth1 = +battleCards.cardsOfRound[0].children[0].children[1].innerText;
+                    const monsterHealth2 = +battleCards.cardsOfRound[1].children[0].children[1].innerText;
+                    battleCards.player1 = monsterHealth1;
+                    battleCards.player2 = monsterHealth2;
+                   
+                    console.log(battleCards);
+                    console.log(monsterHealth1, monsterHealth2);
+
+
+                    const checkHealth = battleCards.checkHealth(monsterHealth1, monsterHealth2);
+
+                    document.querySelector('#scoreP1').innerHTML = battleCards.scoreP1;
+                    document.querySelector('#scoreP2').innerHTML = battleCards.scoreP2;
+                }
+            }
+            
+    
+            
+      
+           
+        
+        
         })
+        
     })
+    
 });
 
 
