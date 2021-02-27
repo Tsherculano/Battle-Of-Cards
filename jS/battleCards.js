@@ -4,6 +4,7 @@ class BattleCards {
         this.player1 = [];
         this.player2 = [];
         this.cardsOfRound = [];
+        this.tableCards = [];
         this.scoreP1 = 0;
         this.scoreP2 = 0;
 
@@ -26,15 +27,38 @@ class BattleCards {
 
     checkHealth(monsterHealth1, monsterHealth2) {
         
-        if (monsterHealth1 > monsterHealth2) {
-            this.scoreP1 += 1;
+        if (monsterHealth1 === monsterHealth2) {
+            this.scoreP2 += 0;
+            this.scoreP2 += 0;
 
+        } else if(monsterHealth1 > monsterHealth2) {
+            this.scoreP1 += 1;
         } else {
             this.scoreP2 += 1;
         }
     }
         
-    endGame() {
-        this.scoreP1 || this.scoreP2 === 15;
+    endGame(scoreP1, scoreP2) {
+
+    
+        if(scoreP1 >  scoreP2 && scoreP1 > 3 && scoreP2 < 2) {
+            setTimeout(() => {
+                document.querySelector('#tableCards').innerHTML = "<button onclick='restartGame()'>PLAY AGAIN</button>"
+            },1200)
+            document.querySelector('#scoreP1').innerHTML = 'WIN';
+            document.querySelector('#scoreP2').innerHTML = 'LOSE';
+        
+
+        } else if(scoreP2 > scoreP1 && scoreP2 > 3 && scoreP1 < 2) {
+            setTimeout(() => {
+                document.querySelector('#tableCards').innerHTML = "<button onclick='restartGame()'>PLAY AGAIN</button>"
+            },1200)
+            document.querySelector('#scoreP1').innerHTML = 'LOSE';
+            document.querySelector('#scoreP2').innerHTML = 'WIN';
+            
+
+        }
+    
+
     }
 }
