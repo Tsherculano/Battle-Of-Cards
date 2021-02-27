@@ -15,3 +15,5 @@ Each player will have 5 cards with a certain attribute and value so that they ca
 * CSS 3
 
 ### Author:
+
+Thiago Herculano
